@@ -11,7 +11,7 @@ public class RandomFileGenerator {
 	
 	public void generateFiles() throws IOException{
 		for(int i=0;i<numFiles;i++){
-			RandomGenerator rg = new RandomGenerator(100000, Math.abs((int)(Math.random() * 100000)));
+			RandomGenerator rg = new RandomGenerator(1000000, Math.abs((int)(Math.random() * 100000)));
 			String directory = Constants.PATH;
 			rg.writeToArray(directory, null);
 		}

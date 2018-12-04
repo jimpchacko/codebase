@@ -3,15 +3,21 @@ package threads;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.BlockingQueue;
 
 public class ThreadDispatcher {
 
 	private int maxThreads = 2; //8- //2 thread per core * 4 cores
 	private String inputDir;
 	public ThreadDispatcher(String path) {
-		inputDir = path;
+		this.inputDir = path;
 	}
-	
+
+	public ThreadDispatcher(String path, int numThreads) {
+		this.inputDir = path;
+		this.maxThreads = numThreads;
+	}
+
 	public void doSort() throws InterruptedException{
 		long start = System.currentTimeMillis();
 		List<Thread> threads = new ArrayList<>();
@@ -41,7 +47,8 @@ public class ThreadDispatcher {
 	}
 	
 	public static void main(String[] args) throws InterruptedException {
-		new ThreadDispatcher(Constants.PATH).doSort();;
+		new ThreadDispatcher(Constants.PATH).doSort();
+		new SerialSorter(Constants.PATH2).sortFiles();
 	}
 
 }

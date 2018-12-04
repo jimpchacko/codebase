@@ -51,11 +51,11 @@ public class RandomGenerator {
 		}
 	}
 	
-	public static void main(String[] args) throws IOException {
+/*	public static void main(String[] args) throws IOException {
 		RandomGenerator rg = new RandomGenerator(1000, (long)Math.random());
 		rg.printArray();
-		String directory = "/home/jim/Documents/misc/pit/java/files/";
+		String directory = "/home/jim/Documents/rand/";
 		rg.writeToArray(directory, null);
 	}
-
+*/
 }

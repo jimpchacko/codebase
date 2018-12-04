@@ -30,7 +30,7 @@ public class Sorter implements Runnable {
 
 	}
 
-	private void readAndSortFile(String fileName) throws IOException {
+	public static void readAndSortFile(String fileName) throws IOException {
 		List<Integer> numbers = new ArrayList<>(1000);
 		BufferedReader fread = null;
 		int i=0;
@@ -55,7 +55,7 @@ public class Sorter implements Runnable {
 		}
 	}
 
-	private void writeSortedList(List<Integer> numbers2, String fileName) throws IOException {
+	public static void writeSortedList(List<Integer> numbers2, String fileName) throws IOException {
 		if(numbers2.size()==0)
 			return;
 		String token = fileName.split(".txt")[0];
@@ -67,8 +67,4 @@ public class Sorter implements Runnable {
 		
 		writer.close();
 	}
-	public static void main(String[] args) {
-//		Sorter sorter = new Sorter(Constants.PATH, fileNames);
-	}
-
 }
