@@ -19,18 +19,18 @@ class Solution {
         
         if(root == null)
             return;
+        subList.add(root.val);        
         
-        boolean leafy = isLeaf(root);
-        if(root.val == sum && leafy){
-            subList.add(root.val);
+        if(root.val == sum && isLeaf(root)){
             paths.add(new ArrayList(subList));
             subList.pop();
             return;
         }
 
-        subList.add(root.val);
-        findPaths(root.left, sum - root.val, paths, subList);
-        findPaths(root.right, sum - root.val, paths, subList);
+        if(root.left!=null)
+            findPaths(root.left, sum - root.val, paths, subList);
+        if(root.right!=null)
+            findPaths(root.right, sum - root.val, paths, subList);
         subList.pop();
         return;
     }
